@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.MovimientosPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Label Grid.Row="0" Grid.ColumnSpan="4" Text="Movimientos" FontSize="Large"></Label>
+            </Frame>
+
+            <ListView x:Name="ListMovimientos" ItemSelected="ListMovimientos_ItemSelected" HasUnevenRows="True" ItemsSource="{Binding Movimientos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="5" Padding="13" HasShadow="True" CornerRadius="5">
+                                <Grid RowSpacing="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Object.TipoMovimiento, StringFormat='{0:C}'}" FontAttributes="Bold" FontSize="Subtitle" />
+
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Usuario:" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.UsuarioNombre, StringFormat='{0:C}'}" />
+
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Monto:"></Label>
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Monto, StringFormat='{0:C}'}" />
+
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Saldo en caja:" />
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Object.SaldoEnCaja, StringFormat='{0:C}'}" />
+
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Fecha:" />
+                                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Object.Fecha, StringFormat='{0:C}'}" />
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

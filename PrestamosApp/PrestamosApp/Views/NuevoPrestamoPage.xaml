@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.NuevoPrestamoPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                        <ColumnDefinition Width="60*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Monto:" VerticalOptions="Center" />
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Monto}" Keyboard="Numeric" x:Name="TxtMonto" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Tasa Interes:" VerticalOptions="Center" />
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding TasaInteres}" TextTransform="Uppercase" Keyboard="Numeric" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Fecha prestamo:" VerticalOptions="Center" />
+                    <DatePicker Grid.Row="2" Grid.Column="1" Date="{Binding FechaPrestamo}" />
+
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Guardar" Margin="0, 5" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked"></Button>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

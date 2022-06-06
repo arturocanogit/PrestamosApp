@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.ClientesPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="Clientes" FontSize="Medium" FontAttributes="Bold"></Label>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Saldo Total:"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding SaldoTotal, StringFormat='{0:C}'}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Interes Total:"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding InteresTotal, StringFormat='{0:C}'}" />
+
+                    <Button Grid.Row="3" Grid.Column="0" Text="Nuevo Cliente" Margin="0, 5" Clicked="Button_Clicked"></Button>
+                </Grid>
+            </Frame>
+
+            <StackLayout>
+
+                <ListView x:Name="ListClientes" ItemSelected="ListClientes_ItemSelected" HasUnevenRows="True" ItemsSource="{Binding Clientes}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="5" Padding="13" HasShadow="True" CornerRadius="5">
+                                    <Grid RowSpacing="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Object.Nombre}" FontSize="Subtitle" FontAttributes="Bold" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Object.EstatusPrestamo.Descripcion}" TextColor="{Binding Object.EstatusPrestamo.Color}" />
+
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Saldo:"></Label>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Saldo, StringFormat='{0:C}'}" />
+
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Interes:" />
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" />
+
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

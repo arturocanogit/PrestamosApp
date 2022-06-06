@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\DbContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.7" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\NuevoAbonoPage.xaml.cs">
+      <DependentUpon>NuevoAbonoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProveedorDetallePage.xaml.cs">
+      <DependentUpon>ProveedorDetallePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NuevoProveedorPage.xaml.cs">
+      <DependentUpon>NuevoProveedorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MovimientosPage.xaml.cs">
+      <DependentUpon>MovimientosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProveedoresPage.xaml.cs">
+      <DependentUpon>ProveedoresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NuevoPrestamoPage.xaml.cs">
+      <DependentUpon>NuevoPrestamoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PrestamoDetallePage.xaml.cs">
+      <DependentUpon>PrestamoDetallePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ClienteDetallePage.xaml.cs">
+      <DependentUpon>ClientesDetallePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\ClienteDetallePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ClientesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NuevoClientePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

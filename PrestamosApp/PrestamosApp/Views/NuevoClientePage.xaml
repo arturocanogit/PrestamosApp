@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.NuevoClientePage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="75*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Nombre:" VerticalOptions="Center" />
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}" x:Name="TxtNombre" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Contacto:" VerticalOptions="Center" />
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Contacto}" TextTransform="Uppercase" Keyboard="Numeric" />
+
+                    <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Guardar" Margin="0, 5" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked"></Button>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

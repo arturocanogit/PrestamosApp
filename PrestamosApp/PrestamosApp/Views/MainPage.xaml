@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.MainPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="7,7,7,0" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="Información general:" FontSize="Medium" FontAttributes="Bold"></Label>
+
+                    <!--<Label Grid.Row="1" Grid.Column="0" Text="Saldo Proveedores:"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding SaldoProveedores, StringFormat='{0:C}'}" HorizontalOptions="End"></Label>
+
+
+                    <Label Grid.Row="1" Grid.Column="2" Text="Saldo Cientes:"></Label>
+                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding SaldoClientes, StringFormat='{0:C}'}" HorizontalOptions="End"></Label>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Interes Pr:"></Label>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding InteresProveedores, StringFormat='{0:C}'}" HorizontalOptions="End"></Label>
+
+                    <Label Grid.Row="2" Grid.Column="2" Text="Saldo Caja:"></Label>
+                    <Label Grid.Row="2" Grid.Column="3" Text="{Binding SaldoCaja, StringFormat='{0:C}'}" HorizontalOptions="End"></Label>
+                    
+                    <Label Grid.Row="3" Grid.Column="0" Text="Interes Ci:"></Label>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding InteresClientes, StringFormat='{0:C}'}" HorizontalOptions="End"></Label>-->
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Utilidad:" FontAttributes="Bold"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding UtilidadNeta, StringFormat='{0:C}'}" HorizontalOptions="End" x:Name="LblUtilidad"></Label>
+
+                    <Label Grid.Row="1" Grid.Column="2" Text="Caja:" FontAttributes="Bold"></Label>
+                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding SaldoCaja, StringFormat='{0:C}'}" HorizontalOptions="End" x:Name="LblSaldoCaja"></Label>
+
+
+
+                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BindingContext="B1" Text="Proveedores" Clicked="BtnRuta_Clicked" />
+                    <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" BindingContext="B2" Text="Clientes" Clicked="BtnRuta_Clicked" />
+                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BindingContext="B3" Text="Movimientos" Clicked="BtnRuta_Clicked" />
+                </Grid>
+            </Frame>
+            <StackLayout>
+                <ListView ItemSelected="ListUsuarios_ItemSelected" HasUnevenRows="True" ItemsSource="{Binding Usuarios}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="5" Padding="13" HasShadow="True" CornerRadius="5">
+                                    <Grid RowSpacing="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Object.Nombre}" FontSize="Subtitle" FontAttributes="Bold" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Object.EstatusPrestamo.Descripcion}" TextColor="{Binding Object.EstatusPrestamo.Color}" />
+
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Tipo usuario:"></Label>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Tipo}" />
+
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Interes:" />
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" />
+
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

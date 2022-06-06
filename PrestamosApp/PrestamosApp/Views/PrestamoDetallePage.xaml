@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.PrestamoDetallePage" 
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Nombre}" FontSize="Large"></Label>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Monto prestamo:" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Monto, StringFormat='{0:C}'}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Saldo:" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Saldo, StringFormat='{0:C}'}" />
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Tasa Interes:" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding TasaInteres, StringFormat='{0:P}'}" />
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Interes:" />
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Interes, StringFormat='{0:C}'}" />
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Dia:" />
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding Dia}" />
+
+                    <Button Grid.Row="6" Grid.ColumnSpan="2" x:Name="BtnNuevoAbono" Text="Registar abono" Margin="0, 5" Clicked="BtnNuevoAbono_Clicked"></Button>
+                    <!--<Button Grid.Row="6" Grid.Column="1" x:Name="BtnNuevoAbono" Text="Eliminar" Margin="0, 5"></Button>-->
+                </Grid>
+            </Frame>
+
+            <ListView x:Name="ListAbonos" HasUnevenRows="True" ItemsSource="{Binding Abonos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="5" Padding="13" HasShadow="True" CornerRadius="5">
+                                <Grid RowSpacing="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="15*"></ColumnDefinition>
+                                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Object.Nombre}" FontSize="Subtitle" FontAttributes="Bold" />
+
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Monto:" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Monto, StringFormat='{0:C}'}" />
+
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Capital:" />
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Capital, StringFormat='{0:C}'}" />
+
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Interes:" />
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" />
+
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Fecha:" />
+                                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Object.FechaRegistro}" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

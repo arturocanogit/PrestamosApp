@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbonosApp.Views.NuevoAbonoPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="10*"></ColumnDefinition>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Interes:" VerticalOptions="Center" />
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Interes}" TextTransform="Uppercase" Keyboard="Numeric" IsEnabled="False" x:Name="TxtInteres" />
+
+                    <CheckBox Grid.Row="0" Grid.Column="2" IsChecked="False" x:Name="ChkSinInteres" CheckedChanged="ChkSinInteres_CheckedChanged" />
+                    <Label Grid.Row="0" Grid.Column="3" Text="Sin interes" VerticalOptions="Center" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Capital:" VerticalOptions="Center" />
+                    <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Capital}" TextTransform="Uppercase" Keyboard="Numeric" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Fecha Abono:" VerticalOptions="Center" />
+                    <DatePicker Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Date="{Binding FechaAbono}" />
+
+                    <Button Grid.Row="3" Grid.ColumnSpan="4" Text="Guardar" Margin="0, 5" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked"></Button>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
