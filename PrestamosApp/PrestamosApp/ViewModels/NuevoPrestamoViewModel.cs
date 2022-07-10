@@ -1,6 +1,5 @@
 ﻿using Firebase.Database;
 using PrestamosApp.Models;
-using PrestamosApp.Models.Enums;
 using PrestamosApp.Models.Interfaces;
 using System;
 using System.Collections.Generic;

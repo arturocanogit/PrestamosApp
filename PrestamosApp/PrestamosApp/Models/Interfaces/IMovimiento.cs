@@ -1,4 +1,4 @@
-﻿using PrestamosApp.Models.Enums;
+﻿using PrestamosApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

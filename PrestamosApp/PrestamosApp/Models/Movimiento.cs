@@ -1,4 +1,4 @@
-﻿using PrestamosApp.Models.Enums;
+﻿using PrestamosApp.Models;
 using PrestamosApp.Models.Interfaces;
 using System;
 using System.Collections.Generic;
