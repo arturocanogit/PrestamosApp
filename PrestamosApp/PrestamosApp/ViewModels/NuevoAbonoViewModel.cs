@@ -27,19 +27,13 @@ namespace AbonosApp.ViewModels
 
         public async Task<FirebaseObject<Abono>> PostAbono()
         {
-            Monto = Capital + Interes;
             Nombre = GenerarNombre();
 
             //Si se abona a capital se resta de la deuda y se recalcula el interes
             if (Capital > 0)
             {
-                double interesEliminado = Capital * Prestamo.Object.TasaInteres;
-
-                Prestamo.Object.Saldo -= Capital;
-                Prestamo.Object.Interes -= interesEliminado;
-
-                Usuario.Object.Saldo -= Capital;
-                Usuario.Object.Interes -= interesEliminado;
+                Prestamo.Object.Saldo = Math.Round(Prestamo.Object.Saldo - Capital, 2);
+                Prestamo.Object.Interes = Math.Round(Prestamo.Object.Saldo * Prestamo.Object.TasaInteres, 2);
             }
 
             IReadOnlyCollection<FirebaseObject<Global>> list = await DataBase.GetAllAsync<Global>("Global");
@@ -66,10 +60,17 @@ namespace AbonosApp.ViewModels
 
             await Task.WhenAll(
             DataBase.PutAsync($"Global/{fbo.Key}", global),
-            DataBase.PutAsync($"Usuarios/{Usuario.Key}", Usuario.Object),
             DataBase.PutAsync($"Prestamos/{Usuario.Key}/{Prestamo.Key}", Prestamo.Object),
             DataBase.PostAsync($"Movimientos", movimiento));
 
+
+            IReadOnlyCollection<FirebaseObject<PrestamoDetalle>> Prestamos =
+                   await DataBase.GetAllAsync<PrestamoDetalle>($"Prestamos/{Usuario.Key}");
+
+            Usuario.Object.Saldo = Prestamos.Sum(x => x.Object.Saldo);
+            Usuario.Object.Interes = Prestamos.Sum(x => x.Object.Interes);
+
+            await DataBase.PutAsync($"Usuarios/{Usuario.Key}", Usuario.Object);
             return await DataBase.PostAsync($"Abonos/{Prestamo.Key}", (Abono)this);
         }
 

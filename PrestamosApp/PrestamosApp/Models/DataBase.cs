@@ -9,8 +9,7 @@ namespace PrestamosApp.Models
 {
     public class DataBase
     {
-        public static string UrlConnection = "https://prestamosappdev-default-rtdb.firebaseio.com/";
-        //public static string UrlConnection = "https://prestamosmovil-dev-default-rtdb.firebaseio.com/";
+        public static string UrlConnection = "https://prestamosappprod-default-rtdb.firebaseio.com/";
 
         public static Task<IReadOnlyCollection<FirebaseObject<T>>> GetAllAsync<T>(string resourceName)
         {
