@@ -27,6 +27,9 @@
     <Compile Update="Views\NuevoAbonoPage.xaml.cs">
       <DependentUpon>NuevoAbonoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\PrestamoEditPage.xaml.cs">
+      <DependentUpon>PrestamoEditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProveedorDetallePage.xaml.cs">
       <DependentUpon>ProveedorDetallePage.xaml</DependentUpon>
     </Compile>

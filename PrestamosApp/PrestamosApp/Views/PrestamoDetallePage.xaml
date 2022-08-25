@@ -14,32 +14,33 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="50*"></ColumnDefinition>
                         <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Nombre}" FontSize="Large"></Label>
+                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Nombre}" FontSize="Title"></Label>
 
-                    <Label Grid.Row="1" Grid.Column="0" Text="Monto prestamo:" />
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Monto, StringFormat='{0:C}'}" />
+                    <Label Grid.Row="1" Grid.Column="0" Text="Monto:" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Monto, StringFormat='{0:C}'}" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="2" Text="Saldo:" />
+                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding Saldo, StringFormat='{0:C}'}" FontAttributes="Bold" />
 
-                    <Label Grid.Row="2" Grid.Column="0" Text="Saldo:" />
-                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Saldo, StringFormat='{0:C}'}" />
+                    <Label Grid.Row="2" Grid.Column="0" Text="Tasa Interes:" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding TasaInteres, StringFormat='{0:P}'}" FontAttributes="Bold" />
+                    <Label Grid.Row="2" Grid.Column="2" Text="Interes:" />
+                    <Label Grid.Row="2" Grid.Column="3" Text="{Binding Interes, StringFormat='{0:C}'}" FontAttributes="Bold" />
 
-                    <Label Grid.Row="3" Grid.Column="0" Text="Tasa Interes:" />
-                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding TasaInteres, StringFormat='{0:P}'}" />
+                    <Label Grid.Row="3" Grid.Column="0" Text="Dia:" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Dia}" FontAttributes="Bold" />
 
-                    <Label Grid.Row="4" Grid.Column="0" Text="Interes:" />
-                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Interes, StringFormat='{0:C}'}" />
-
-                    <Label Grid.Row="5" Grid.Column="0" Text="Dia:" />
-                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding Dia}" />
-
-                    <Button Grid.Row="6" Grid.ColumnSpan="2" x:Name="BtnNuevoAbono" Text="Registar abono" Margin="0, 5" Clicked="BtnNuevoAbono_Clicked"></Button>
-                    <!--<Button Grid.Row="6" Grid.Column="1" x:Name="BtnNuevoAbono" Text="Eliminar" Margin="0, 5"></Button>-->
+                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="BtnNuevoAbono" Text="Registar abono" Clicked="BtnNuevoAbono_Clicked"></Button>
+                    <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" x:Name="BtnEditar" Text="Editar" Clicked="BtnEditar_Clicked"></Button>
+                    
+                    <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" x:Name="BtnEliminar" Text="Eliminar" Clicked="BtnEliminar_Clicked"></Button>
                 </Grid>
             </Frame>
 
@@ -55,24 +56,23 @@
                                         <RowDefinition Height="Auto"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="15*"></ColumnDefinition>
-                                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        <ColumnDefinition Width="50*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-
 
                                     <Label Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Object.Nombre}" FontSize="Subtitle" FontAttributes="Bold" />
 
                                     <Label Grid.Row="1" Grid.Column="0" Text="Monto:" />
-                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Monto, StringFormat='{0:C}'}" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Monto, StringFormat='{0:C}'}" FontAttributes="Bold" />
+                                    <Label Grid.Row="1" Grid.Column="2" Text="Capital:" />
+                                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding Object.Capital, StringFormat='{0:C}'}" FontAttributes="Bold" />
 
-                                    <Label Grid.Row="2" Grid.Column="0" Text="Capital:" />
-                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Capital, StringFormat='{0:C}'}" />
-
-                                    <Label Grid.Row="3" Grid.Column="0" Text="Interes:" />
-                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" />
-
-                                    <Label Grid.Row="4" Grid.Column="0" Text="Fecha:" />
-                                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Object.FechaRegistro}" />
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Interes:" />
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" FontAttributes="Bold" />
+                                    <Label Grid.Row="2" Grid.Column="2" Text="Fecha:" />
+                                    <Label Grid.Row="2" Grid.Column="3" Text="{Binding Object.FechaRegistro, StringFormat='{0:dd/MM/yyyy}'}" FontAttributes="Bold" />
                                 </Grid>
                             </Frame>
                         </ViewCell>

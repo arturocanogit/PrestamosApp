@@ -43,15 +43,23 @@ namespace PrestamosApp.Views
         private async void BtnNuevoAbono_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NuevoAbonoPage(Usuario, Prestamo));
+        }
 
+        private void BtnEditar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PrestamoEditPage(Usuario.Key, Prestamo));
+        }
 
-            //PrestamoDetalleViewModel context = (PrestamoDetalleViewModel)BindingContext;
-            //if (await DisplayAlert("Alert", $"¿Desea registar el interes del mes? " +
-            //    $"({context.Interes.ToString("C", CultureInfo.CurrentCulture)})", "Aceptar", "Cancelar"))
-            //{
-            //    await context.PostInteres();
-            //    LoadDataAsync();
-            //}
+        private async void BtnEliminar_Clicked(object sender, EventArgs e)
+        {
+            if (await DisplayAlert("Eliminar", "¿Deseas eliminar el préstamo?, se eliminaran tambien sus abonos.", "Aceptar", "Cancelar"))
+            {
+                await Task.WhenAll(
+                    DataBase.DeleteAsync($"Prestamos/{Usuario.Key}/{Prestamo.Key}"),
+                    DataBase.DeleteAsync($"Abonos/{Prestamo.Key}"));
+
+                await Navigation.PopAsync(true);
+            }
         }
     }
 }

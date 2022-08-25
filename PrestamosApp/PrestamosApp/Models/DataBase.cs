@@ -33,5 +33,11 @@ namespace PrestamosApp.Models
             var firebase = new FirebaseClient(UrlConnection);
             return firebase.Child(child).PostAsync(objeto);
         }
+
+        public static Task DeleteAsync(string child)
+        {
+            var firebase = new FirebaseClient(UrlConnection);
+            return firebase.Child(child).DeleteAsync();
+        }
     }
 }

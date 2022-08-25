@@ -37,15 +37,19 @@ namespace PrestamosApp.ViewModels
             //ClienteId = cliente.Object.ClienteId;
             Nombre = cliente.Object.Nombre;
             Contacto = cliente.Object.Contacto;
-            Saldo = cliente.Object.Saldo;
-            Interes = cliente.Object.Interes;
-            NumeroPrestamos = cliente.Object.NumeroPrestamos;
+            //Saldo = cliente.Object.Saldo;
+            //Interes = cliente.Object.Interes;
+            //NumeroPrestamos = cliente.Object.NumeroPrestamos;
         }
 
         public override async Task LoadDataAsync()
         {
             Prestamos = await DataBase.GetAllAsync<PrestamoDetalle>($"Prestamos/{Key}");
             SetStatusPrestamos();
+
+            Saldo = Prestamos.Sum(x => x.Object.Saldo);
+            Interes = Prestamos.Sum(x => x.Object.Interes);
+            NumeroPrestamos = Prestamos.Count();
         }
 
         private void SetStatusPrestamos()

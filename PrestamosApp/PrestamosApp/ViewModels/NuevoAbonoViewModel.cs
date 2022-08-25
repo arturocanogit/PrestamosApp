@@ -1,6 +1,5 @@
 ﻿using Firebase.Database;
 using PrestamosApp.Models;
-using PrestamosApp.Models;
 using PrestamosApp.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,13 +26,11 @@ namespace AbonosApp.ViewModels
 
         public async Task<FirebaseObject<Abono>> PostAbono()
         {
-            Nombre = GenerarNombre();
-
             //Si se abona a capital se resta de la deuda y se recalcula el interes
             if (Capital > 0)
             {
                 Prestamo.Object.Saldo = Math.Round(Prestamo.Object.Saldo - Capital, 2);
-                Prestamo.Object.Interes = Math.Round(Prestamo.Object.Saldo * Prestamo.Object.TasaInteres, 2);
+                //Prestamo.Object.Interes = Math.Round(Prestamo.Object.Saldo * Prestamo.Object.TasaInteres, 2);
             }
 
             IReadOnlyCollection<FirebaseObject<Global>> list = await DataBase.GetAllAsync<Global>("Global");
@@ -72,11 +69,6 @@ namespace AbonosApp.ViewModels
 
             await DataBase.PutAsync($"Usuarios/{Usuario.Key}", Usuario.Object);
             return await DataBase.PostAsync($"Abonos/{Prestamo.Key}", (Abono)this);
-        }
-
-        private string GenerarNombre()
-        {
-            return $"Abono { FechaRegistro:dd/MMM/yyyy}";
         }
     }
 }

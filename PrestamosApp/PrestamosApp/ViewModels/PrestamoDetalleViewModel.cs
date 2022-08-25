@@ -44,8 +44,7 @@ namespace PrestamosApp.ViewModels
             {
                 Monto = Interes,
                 Interes = Interes,
-                FechaRegistro = DateTime.Now,
-                Nombre = GenerarNombre()
+                FechaRegistro = DateTime.Now
             };
 
             IReadOnlyCollection<FirebaseObject<Global>> list = await DataBase.GetAllAsync<Global>("Global");

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestamosApp.Views.PrestamoEditPage" 
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="5" HasShadow="True" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Nombre}" FontSize="Title"></Label>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Monto:" />
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Monto}" Keyboard="Numeric" />
+                    <Label Grid.Row="1" Grid.Column="2" Text="Saldo:" />
+                    <Entry Grid.Row="1" Grid.Column="3" Text="{Binding Saldo}" Keyboard="Numeric" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Tasa Interes:" />
+                    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding TasaInteres}" Keyboard="Numeric" />
+                    <Label Grid.Row="2" Grid.Column="2" Text="Interes:" />
+                    <Label Grid.Row="2" Grid.Column="3" Text="{Binding Interes, StringFormat='{0:C}'}" />
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Dia:" />
+                    <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Dia}" />
+
+                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="BtnGuardar" Text="Guardar" Clicked="BtnGuardar_Clicked"></Button>
+                    <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" x:Name="BtnCancelar" Text="Cancelar" Clicked="BtnCancelar_Clicked"></Button>
+                </Grid>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

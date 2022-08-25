@@ -45,5 +45,10 @@ namespace PrestamosApp.Views
         {
             await Navigation.PushAsync(new NuevoPrestamoPage(Cliente));
         }
+
+        private void BtnEditar_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

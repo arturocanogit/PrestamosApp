@@ -24,9 +24,9 @@ namespace PrestamosApp.ViewModels
         public async Task<FirebaseObject<Prestamo>> PostPrestamo()
         {
             Dia = FechaPrestamo.Day;
-            Nombre = GenerarNombre();
+            //Nombre = GenerarNombre();
             Saldo = Monto;
-            Interes = Saldo * TasaInteres;
+            //Interes = Saldo * TasaInteres;
 
             Usuario.Object.Saldo += Monto;
             Usuario.Object.Interes += Interes;
@@ -68,9 +68,9 @@ namespace PrestamosApp.ViewModels
             return await DataBase.PostAsync($"Prestamos/{Usuario.Key}", (Prestamo)this);
         }
 
-        private string GenerarNombre()
-        {
-            return $"Prestamo dias { Dia }";
-        }
+        //private string GenerarNombre()
+        //{
+        //    return $"Prestamo dias { Dia }";
+        //}
     }
 }
