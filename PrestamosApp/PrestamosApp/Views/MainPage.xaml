@@ -63,6 +63,7 @@
                                             <RowDefinition Height="Auto"></RowDefinition>
                                             <RowDefinition Height="Auto"></RowDefinition>
                                             <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="50*"></ColumnDefinition>
@@ -74,10 +75,13 @@
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Object.EstatusPrestamo.Descripcion}" TextColor="{Binding Object.EstatusPrestamo.Color}" />
 
                                         <Label Grid.Row="1" Grid.Column="0" Text="Tipo usuario:"></Label>
-                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Tipo}" />
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Object.Tipo}" FontAttributes="Bold" />
 
-                                        <Label Grid.Row="2" Grid.Column="0" Text="Interes:" />
-                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" />
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Saldo:" />
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Object.Saldo, StringFormat='{0:C}'}" FontAttributes="Bold" />
+
+                                        <Label Grid.Row="3" Grid.Column="0" Text="Interes:" />
+                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Object.Interes, StringFormat='{0:C}'}" FontAttributes="Bold" />
 
                                     </Grid>
                                 </Frame>
