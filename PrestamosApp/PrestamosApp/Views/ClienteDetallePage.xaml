@@ -31,8 +31,10 @@
                     <Label Grid.Row="2" Grid.Column="0" Text="Prestamos:" />
                     <Label Grid.Row="2" Grid.Column="1" Text="{Binding NumeroPrestamos}" FontAttributes="Bold" />
 
-                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Nuevo prestamo" Margin="0, 5" x:Name="BtnNuevoPrestamo" Clicked="BtnNuevoPrestamo_Clicked"></Button>
-                    <Button Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="Editar" Margin="0, 5" x:Name="BtnEditar" Clicked="BtnEditar_Clicked"></Button>
+                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Nuevo prestamo" x:Name="BtnNuevoPrestamo" Clicked="BtnNuevoPrestamo_Clicked"></Button>
+                    <Button Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="Editar" x:Name="BtnEditar" Clicked="BtnEditar_Clicked"></Button>
+
+                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Eliminar" x:Name="BtnEliminar" Clicked="BtnEliminar_Clicked"></Button>
                 </Grid>
             </Frame>
 

@@ -50,5 +50,23 @@ namespace PrestamosApp.Views
         {
 
         }
+
+        private async void BtnEliminar_Clicked(object sender, EventArgs e)
+        {
+            if (await DisplayAlert("Eliminar", "¿Desea eliminar el usuario?", "Aceptar", "Cancelar"))
+            {
+                await Task.WhenAll(
+           DataBase.DeleteAsync($"Usuarios/{Cliente.Key}"),
+           DataBase.DeleteAsync($"Prestamos/{Cliente.Key}"));
+
+                await Navigation.PopAsync();
+            }
+        }
+
+        public async void ActualizarDatosCliente(string key)
+        {
+            Usuario usaurio = await DataBase.GetAsync<Usuario>($"Usuarios/{key}");
+            var prestamos = await DataBase.GetAllAsync<Prestamo>($"Usuarios/Prestamos/{key}");
+        }
     }
 }

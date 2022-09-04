@@ -34,8 +34,22 @@ namespace PrestamosApp.Views
             if (await DisplayAlert("Editar", "¿Deseas editar el préstamo?", "Aceptar", "Cancelar"))
             {
                 await DataBase.PutAsync($"Prestamos/{UsuarioKey}/{Prestamo.Key}", BindingContext);
+                await ActualizartotalesUsuario(UsuarioKey);
                 await Navigation.PopAsync(true);
             }
+        }
+
+        private async Task ActualizartotalesUsuario(string usuarioKey)
+        {
+            Usuario usuario = await DataBase.GetAsync<Usuario>($"Usuarios/{UsuarioKey}");
+
+            IReadOnlyCollection<FirebaseObject<Usuario>> prestamos = 
+                await DataBase.GetAllAsync<Usuario>($"Prestamos/{UsuarioKey}");
+
+            usuario.Saldo = prestamos.Sum(x => x.Object.Saldo);
+            usuario.Interes = prestamos.Sum(x => x.Object.Interes);
+
+            await DataBase.PutAsync($"Usuarios/{UsuarioKey}", usuario);
         }
 
         private void BtnCancelar_Clicked(object sender, EventArgs e)
